@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="DM Lace Surat - Direct Loom Manufacturer Wholesale Ledger, Saree Lace Design Catalog & Secure Offline Accounting. Ring Road, Surat.">
+  <meta name="keywords" content="DM Lace, Surat Lace, Zari Border, Gota Patti, Surat Textile Market, Wholesale Ledger, Millennium Market">
+  <meta name="theme-color" content="#060F1E">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DM Lace">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>DM Lace Surat • Wholesale Ledger & Design Catalog</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #060F1E;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      color: #E2E8F0;
+    }
+    #loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #060F1E;
+      z-index: 999999;
+      text-align: center;
+      transition: opacity 0.35s ease-out;
+      animation: fadeIn 0.4s ease-out;
+    }
+    .gold-spinner {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 20px auto;
+      border: 3px solid rgba(212, 175, 55, 0.2);
+      border-top: 3px solid #FDE047;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    .brand-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #FDE047;
+      margin: 0 0 6px 0;
+      text-transform: uppercase;
+    }
+    .brand-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94A3B8;
+      letter-spacing: 1px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-container">
+    <div class="gold-spinner"></div>
+    <div class="brand-title">DM Lace Surat</div>
+    <div class="brand-subtitle">👑 Ring Road, Surat • 100% Secure Ledger</div>
+  </div>
+
+  <script>
+    function removeLoader() {
+      var loader = document.getElementById('loading-container');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(function() {
+          if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 350);
+      }
+    }
+
+    // 1. Flutter native first frame event
+    window.addEventListener('flutter-first-frame', removeLoader);
+
+    // 2. Poll for Flutter canvas / view in DOM
+    var pollTimer = setInterval(function() {
+      var el = document.querySelector('flutter-view') || document.querySelector('flt-glass-pane') || document.querySelector('canvas');
+      if (el) {
+        removeLoader();
+        clearInterval(pollTimer);
+      }
+    }, 150);
+
+    // 3. Failsafe timeout to prevent infinite spinner
+    setTimeout(function() {
+      removeLoader();
+      clearInterval(pollTimer);
+    }, 4000);
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
